@@ -1,15 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import Login from './views/dashboard/pages/Login'
+
 Vue.use(Router)
 
-export default new Router({
-  mode: 'hash',
+const router = new Router({
+  mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/login',
+      name: 'login',
+      component: Login,
+    },
+    {
       path: '/',
       component: () => import('@/views/dashboard/Index'),
+      meta: {
+        requiresAuth: false,
+      },
       children: [
         // Dashboard
         {
@@ -60,3 +70,5 @@ export default new Router({
     },
   ],
 })
+
+export default router
