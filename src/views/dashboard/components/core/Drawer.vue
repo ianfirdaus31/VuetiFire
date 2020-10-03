@@ -114,7 +114,22 @@
         {
           icon: 'mdi-account',
           title: 'user',
-          to: '/pages/user',
+          children: [
+            {
+              title: 'Add New',
+              to: '/pages/user',
+            },
+            {
+              title: 'Show All',
+              to: '',
+              children: [
+                {
+                  title: 'Removed Users',
+                  to: ''
+                }
+              ]
+            }
+          ],
         },
         {
           title: 'rtables',
